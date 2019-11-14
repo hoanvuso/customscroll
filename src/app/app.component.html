@@ -1,0 +1,17 @@
+<div class="search-results"
+    infinite-scroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="300"
+    (scrolled)="onScrollDown()">
+    <table>
+        <tbody>
+            <tr *ngFor="let item of videos" [style.height]="itemHeight + 'px'">
+                <td>{{item.name}}</td>
+                <td>
+                    <iframe width="420" height="315" [src]="sanitizer.bypassSecurityTrustResourceUrl(item.iframe)"></iframe>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
